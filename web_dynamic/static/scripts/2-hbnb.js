@@ -10,3 +10,11 @@ $(document).ready(function() {
         $('.amenities h4').text(amenityId.join(', '));
     });
 });
+$.get("http://0.0.0.0:5001/api/v1/status/", data => {
+    $headerDiv = $('DIV#api_status');
+    if (data.status == "OK") {
+        $headerDiv.addClass("available");
+    } else {
+        $headerDiv.removeClass("available");
+    }
+});
