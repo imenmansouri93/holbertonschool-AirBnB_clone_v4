@@ -1,12 +1,11 @@
 $(document).ready(function() {
-    const amenityId = {};
-    $('input:checkbox').click(function () {
+    let amenities = {};
+    $('INPUT[type="checkbox"]').change(function () {
         if ($(this).is(":checked")) {
-            amenityId.push($(this).attr('data-name'));
+            amenities[$(this).attr('data-id')] = $(this).attr('data-name');
         } else {
-            const nameIndex = amenityId.indexof($(this).attr('data-name'));
-            amenityId.splice(nameIndex. 1);
+            delete amenities[$(this).attr('data-id')];
         }
-        $('.amenities h4').text(amenityId.join(', '));
+        $('.amenities h4').text(object.values(amenities).join(', '));
     });
 });

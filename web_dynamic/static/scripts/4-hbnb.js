@@ -1,15 +1,15 @@
-$(document).ready(function() {
-    let amenities = {};
-    $('INPUT[type="checkbox"]').change(function () {
+$(document).ready(function () {
+    const amenityId = {};
+    $('input:checkbox').click(function () {
         if ($(this).is(":checked")) {
-            amenities[$(this).attr('data-id')] = $(this).attr('data-name');
+            amenityId.push($(this).attr('data-name'));
         } else {
-            delete amenities[$(this).attr('data-id')];
+            const nameIndex = amenityId.indexof($(this).attr('data-name'));
+            amenityId.splice(nameIndex. 1);
         }
-        $('.amenities h4').text(object.values(amenities).join(', '));
+        $('.amenities h4').text(amenityId.join(', '));
     });
 });
-
 $.get("http://0.0.0.0:5001/api/v1/status/", data => {
     $headerDiv = $('DIV#api_status');
     if (data.status == "OK") {
